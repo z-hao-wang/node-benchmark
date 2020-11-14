@@ -8,7 +8,7 @@ const { sum } = require('./common');
 class EmaKeeper {
   period = 0;
   dataLen = 0;
-  ema = 0;
+  ema = 0;n
   // only used for length not reached period
   historyValues = [];
 
