@@ -6,7 +6,7 @@ function getEma(periods, price, prevEMA = price) {
 const { sum } = require('./common');
 
 class EmaKeeper {
-  period;
+  period = 0;
   dataLen = 0;
   ema = 0;
   // only used for length not reached period
