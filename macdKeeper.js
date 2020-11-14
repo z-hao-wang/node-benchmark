@@ -1,15 +1,6 @@
 const { EmaKeeper } = require('./emaKeeper');
 
-class MacdKeeper {
-  fastPeriod;
-  slowPeriod;
-  signalPeriod;
-  dataLen = 0;
-  macd = 0;
-
-  fastEmaKeeper;
-  slowEmaKeeper;
-  signalEmaKeeper;
+class MacdKeeper { 
 
   constructor(options) {
     this.fastPeriod = options.fastPeriod;
