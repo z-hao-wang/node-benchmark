@@ -1,0 +1,1 @@
+cmd_Release/cpp.node := c++ -bundle -undefined dynamic_lookup -Wl,-no_pie -Wl,-search_paths_first -mmacosx-version-min=10.10 -arch x86_64 -L./Release -stdlib=libc++  -o Release/cpp.node Release/obj.target/cpp/src/cpp.o Release/obj.target/cpp/src/smaKeeper.o Release/obj.target/cpp/src/slidingWindowArr.o 
