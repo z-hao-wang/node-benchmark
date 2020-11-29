@@ -12,7 +12,7 @@ public:
 private:
   static Napi::FunctionReference constructor;
 
-  Napi::Value add(const Napi::CallbackInfo &info);
+  void add(const Napi::CallbackInfo &info);
   Napi::Value get(const Napi::CallbackInfo &info);
 
   uint32_t _period;

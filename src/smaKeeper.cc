@@ -40,11 +40,12 @@ SmaKeeper::SmaKeeper(const Napi::CallbackInfo &info)
   }
 
   Napi::Number period = info[0].As<Napi::Number>();
+  this->_sma = 0.0;
   this->_period = period.Uint32Value();
   this->_slidingWindowArr = new SlidingWindowArr<float>((int)this->_period);
 }
 
-Napi::Value SmaKeeper::add(const Napi::CallbackInfo &info)
+void SmaKeeper::add(const Napi::CallbackInfo &info)
 {
   Napi::Number price = info[0].As<Napi::Number>();
   float newValue = price.FloatValue();
@@ -64,13 +65,9 @@ Napi::Value SmaKeeper::add(const Napi::CallbackInfo &info)
     this->_slidingWindowArr->push(newValue);
     this->_sma = this->_sma - removedValue / this->_period + newValue / this->_period;
   }
-
-  Napi::Value ret = Napi::Value(info.Env(), 0);
-  return ret;
 }
 
 Napi::Value SmaKeeper::get(const Napi::CallbackInfo &info)
 {
-  Napi::Value ret = Napi::Number::New(info.Env(), this->_sma).As<Napi::Value>();
-  return ret;
+  return Napi::Number::New(info.Env(), this->_sma);
 }

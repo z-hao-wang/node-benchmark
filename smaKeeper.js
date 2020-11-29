@@ -2,15 +2,14 @@ const { SlidingWindowArr } = require('./slidingWindowArr');
 const { sum } = require('./common');
 
 class SmaKeeper {
-  period;
-  historyValues;
   currentSma = 0;
-  constructor(options) {
-    this.period = options.period;
+  constructor(period) {
+    this.period = period;
     this.historyValues = new SlidingWindowArr({ maxLen: this.period });
   }
 
   add(val) {
+
     if (this.historyValues.length() === 0) {
       this.historyValues.push(val);
       this.currentSma = val;
