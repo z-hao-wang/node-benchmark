@@ -9,7 +9,6 @@ class SmaKeeper {
   }
 
   add(val) {
-
     if (this.historyValues.length() === 0) {
       this.historyValues.push(val);
       this.currentSma = val;
@@ -25,6 +24,7 @@ class SmaKeeper {
         this.currentSma = sum(this.historyValues.toUnorderedArr()) / this.historyValues.length();
       }
     }
+
     return this.currentSma;
   }
 
