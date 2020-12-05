@@ -12,6 +12,7 @@ lscpu
 
 ## some results
 ```
+AMD EPYC 7742: 500
 Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz : 560
 Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz : 614
 Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz : 750
