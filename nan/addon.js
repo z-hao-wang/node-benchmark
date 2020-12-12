@@ -70,3 +70,8 @@ function complete(a,b) {
   console.log('Fastest: ' + this.filter('fastest').map('name'));
   console.log('Slowest: ' + this.filter('slowest').map('name'));
 }
+/*
+c++ addon x 282 ops/sec ±3.52% (76 runs sampled)
+js native x 883 ops/sec ±2.58% (80 runs sampled)
+pure cpp x 1,454 ops/sec ±1.57% (88 runs sampled)
+*/
