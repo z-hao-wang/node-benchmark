@@ -2,7 +2,7 @@ import { SmaKeeper } from './smaKeeper';
 export class ReceiveTrade {
     smaKeepers: SmaKeeper[];
     constructor(count: i32) {
-        this.smaKeepers = [new SmaKeeper(count), new SmaKeeper(count), new SmaKeeper(count), new SmaKeeper(count), new SmaKeeper(count)]
+        this.smaKeepers = [new SmaKeeper(count)]
     }
 
     add(val: f32): void {

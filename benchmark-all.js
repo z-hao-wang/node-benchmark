@@ -1,5 +1,5 @@
 const { MacdKeeper } = require('./macdKeeper');
-// const { SmaKeeper } = require('./smaKeeper');
+const { SmaKeeper } = require('./smaKeeper');
 const { ReceiveTrade } = require('./receiveTrade');
 const cpp = require('bindings')('cpp');
 const WebAssembly = require("./index");
@@ -13,7 +13,7 @@ const WebAssembly = require("./index");
       },
     ];
     let j = 0;
-    while (j++ < 500000) {
+    while (j++ < 5000000) {
       const lastTf = tfArr[tfArr.length - 1];
       tfArr.push({
         r: lastTf.r * (1 + rand() * 0.0002 - 0.0001),
@@ -22,9 +22,9 @@ const WebAssembly = require("./index");
 
     let startTs = Date.now();
     let i = 0;
-    while (i++ < 2) {
+    while (i++ < 1) {
       // const macd = new MacdKeeper({ fastPeriod: 12, slowPeriod: 26, signalPeriod: 9 });
-      const receiver = new ReceiveTrade( 3000 );
+      const receiver = new SmaKeeper( 3000 );
       // tfArr.forEach(tf => macd.add(tf.r));
       tfArr.forEach(tf => receiver.add(tf.r));
       console.log(`round ${i} sma=${receiver.get()} took:${Date.now() - startTs}`,);
@@ -33,7 +33,7 @@ const WebAssembly = require("./index");
 
     startTs = Date.now();
     i = 0;
-    while (i++ < 2) {
+    while (i++ < 1) {
       const sma = new cpp.SmaKeeper(3000);
       tfArr.forEach(tf => sma.add(tf.r));
       console.log(`round ${i} sma=${sma.get()} took:${Date.now() - startTs}`,);
@@ -42,8 +42,8 @@ const WebAssembly = require("./index");
 
     startTs = Date.now();
     i = 0;
-    while (i++ < 2) {
-      const receiver = new WebAssembly.ReceiveTrade(3000);
+    while (i++ < 1) {
+      const receiver = new WebAssembly.SmaKeeper(3000);
       tfArr.forEach(tf => receiver.add(tf.r));
       console.log(`round ${i} sma=${receiver.get()} took:${Date.now() - startTs}`,);
     }

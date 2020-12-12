@@ -2,7 +2,7 @@ const { SmaKeeper } = require('./smaKeeper');
 class ReceiveTrade {
 
   constructor(count) {
-    this.smaKeepers = [new SmaKeeper(count), new SmaKeeper(count), new SmaKeeper(count), new SmaKeeper(count), new SmaKeeper(count)]
+    this.smaKeepers = [new SmaKeeper(count)]
   }
 
   add(val) {
@@ -16,4 +16,4 @@ class ReceiveTrade {
   }
 }
 
-module.exports = { ReceiveTrade }
+module.exports = { ReceiveTrade };
